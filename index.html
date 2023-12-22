@@ -4,8 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Add friend a lion</title>
+  <title>Friends with luffy</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    rel="stylesheet"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
 
@@ -40,9 +42,12 @@ body {
   width: 300px;
   border-radius: 10px;
   padding: 30px;
+
   
 }
-
+footer {
+  margin-top: 10px;
+}
 img {
   object-position: center;
   border-radius: 10px;
@@ -64,14 +69,46 @@ h5 {
 
 button {
   font-weight: 700;
+  cursor: pointer;
   
   color: #fff;
   margin-top: 5px;
   background-color: cadetblue;
   padding: 12px 20px;
   border: none;
-  border-radius: 50px;
-  }
+  border-radius: 5px;
+}
+footer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+a {
+  margin-right: 10px;
+  display: block;
+  text-decoration: none;
+  color: #111;
+}
+
+#yt-image {
+  width: 40px;
+  height: 40px;
+}
+
+#heartIcon {
+  transform: translate(-50%, -50%) scale(0);
+  top: 50%;
+  left: 50%;
+  color: white;
+  position: absolute;
+  font-size: 60px;
+  opactiy: 0;
+  transition: transform ease 0.5s;
+}
+
+#Like {
+  position: relative;
+}
   </style>
 </head>
 
@@ -79,9 +116,14 @@ button {
   
   
   <div id="card">
-     <img src="https://cdn.pixabay.com/photo/2023/12/17/14/47/ai-generated-8454324_1280.jpg" />
-    
-    <h2 id="name">Lion</h2>
+
+  <div id="Like">
+     
+  
+     <i class="fa-solid fa-heart" id="heartIcon"></i>
+     <img src="https://cdn.bhdw.net/im/gear-5-luffy-new-form-wallpaper-104452_w635.webp" />
+  </div>
+    <h2 id="name">Monkey D. Luffy</h2>
     <h5>
        Stranger
     </h5>
@@ -93,18 +135,31 @@ button {
        Add Friend
     </button>
     </div>
+    <footer>
+       
+         <img src="https://static.vecteezy.com/system/resources/previews/018/930/572/non_2x/youtube-logo-youtube-icon-transparent-free-png.png" id="yt-image">
+          <a href="https://www.youtube.com/@MrAarsan">
+             MrAarsan
+          </a>
+       
+       
+    </footer>
   </div>
   
   <script type="text/javascript">
     var a = document.querySelector('h5');
 var btn = document.querySelector('#btn');
 var cont = document.getElementById('btn-container');
+var b = 0;
+var heartIcon = document.querySelector('#heartIcon');
+var imgcon = document.querySelector('#Like');
+
 btn.addEventListener("click", () => {
   a.innerHTML = "Friends";
   a.style.color = "green";
   var ba = document.createElement('button');
   cont.appendChild(ba);
-  ba.innerHTML = "Remove";
+  ba.innerHTML = "Remove Friend";
   ba.style.color = "#111";
   ba.style.backgroundColor = "#dadada";
   btn.style.display = "none";
@@ -116,8 +171,18 @@ btn.addEventListener("click", () => {
 })
 })
 
+imgcon.addEventListener("dblclick", () => {
+  heartIcon.style.transform = 'translate(-50%, -50%) scale(1)';
+  heartIcon.style.opacity = 0.8;
+  setTimeout(() => {
+    heartIcon.style.transform = 'translate(-50%, -50%) scale(0)';
+  }, 1000)
+  setTimeout(() => {
+    heartIcon.style.opacity = 0;
+  }, 1000)
+})
 
   </script>
 </body>
 
-  </html>
+</html>
